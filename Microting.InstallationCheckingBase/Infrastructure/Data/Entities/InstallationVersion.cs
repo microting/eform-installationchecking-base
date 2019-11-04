@@ -30,18 +30,26 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
 {
     public class InstallationVersion : BaseEntity
     {
+        public string CompanyName { get; set; }
+        public string CompanyAddress { get; set; }
+        public string CompanyAddress2 { get; set; }
+        public string ZipCode { get; set; }
+        public string CityName { get; set; }
+        public string CountryCode { get; set; }
+
         public InstallationType Type { get; set; }
         public InstallationState State { get; set; }
 
-        public DateTime DateInstall { get; set; }
-        public DateTime DateRemove { get; set; }
-        public DateTime DateActRemove { get; set; }
+        public DateTime? DateInstall { get; set; }
+        public DateTime? DateRemove { get; set; }
+        public DateTime? DateActRemove { get; set; }
 
-        public int EmployeeId { get; set; }
-        public int CustomerId { get; set; }
-        public int SdkCaseId { get; set; }
+        public int? EmployeeId { get; set; }
+        public int? CustomerId { get; set; }
+        public int? SdkCaseId { get; set; }
 
-        [ForeignKey("Task")]
-        public int TaskId { get; set; }
+        [ForeignKey("Installation")]
+        public int InstallationId { get; set; }
+        public virtual Installation Installation { get; set; }
     }
 }

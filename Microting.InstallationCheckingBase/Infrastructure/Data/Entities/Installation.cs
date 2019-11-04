@@ -32,16 +32,23 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
 {
     public class Installation : BaseEntity
     {
+        public string CompanyName { get; set; }
+        public string CompanyAddress { get; set; }
+        public string CompanyAddress2 { get; set; }
+        public string ZipCode { get; set; }
+        public string CityName { get; set; }
+        public string CountryCode { get; set; }
+
         public InstallationType Type { get; set; }
         public InstallationState State { get; set; }
 
-        public DateTime DateInstall { get; set; }
-        public DateTime DateRemove { get; set; }
-        public DateTime DateActRemove { get; set; }
+        public DateTime? DateInstall { get; set; }
+        public DateTime? DateRemove { get; set; }
+        public DateTime? DateActRemove { get; set; }
 
-        public int EmployeeId { get; set; }
-        public int CustomerId { get; set; }
-        public int SdkCaseId { get; set; }
+        public int? EmployeeId { get; set; }
+        public int? CustomerId { get; set; }
+        public int? SdkCaseId { get; set; }
 
         public async Task Create(InstallationCheckingPnDbContext dbContext)
         {
@@ -65,6 +72,12 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
                 throw new NullReferenceException($"Could not find item with id: {Id}");
             }
 
+            installation.CompanyName = CompanyName;
+            installation.CompanyAddress = CompanyAddress;
+            installation.CompanyAddress2 = CompanyAddress2;
+            installation.CityName = CityName;
+            installation.CountryCode = CountryCode;
+            installation.ZipCode = ZipCode;
             installation.Type = Type;
             installation.State = State;
             installation.DateInstall = DateInstall;
@@ -112,6 +125,12 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
         {
             InstallationVersion installationVersion = new InstallationVersion
             {
+                CompanyName = installation.CompanyName,
+                CompanyAddress = installation.CompanyAddress,
+                CompanyAddress2 = installation.CompanyAddress2,
+                CityName = installation.CityName,
+                CountryCode = installation.CountryCode,
+                ZipCode = installation.ZipCode,
                 Type = installation.Type,
                 State = installation.State,
                 DateInstall = installation.DateInstall,
