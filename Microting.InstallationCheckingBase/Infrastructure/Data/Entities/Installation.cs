@@ -58,8 +58,9 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
             WorkflowState = Constants.WorkflowStates.Created;
 
             dbContext.Installations.Add(this);
-            dbContext.InstallationVersions.Add(MapInstallationVersion(this));
+            await dbContext.SaveChangesAsync();
 
+            dbContext.InstallationVersions.Add(MapInstallationVersion(this));
             await dbContext.SaveChangesAsync();
         }
 
@@ -125,6 +126,7 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
         {
             InstallationVersion installationVersion = new InstallationVersion
             {
+                InstallationId = installation.Id,
                 CompanyName = installation.CompanyName,
                 CompanyAddress = installation.CompanyAddress,
                 CompanyAddress2 = installation.CompanyAddress2,
