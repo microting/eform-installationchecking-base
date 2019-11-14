@@ -27,11 +27,19 @@ using Microting.eFormApi.BasePn.Infrastructure.Database.Base;
 using Microsoft.EntityFrameworkCore;
 using Microting.eForm.Infrastructure.Constants;
 using Microting.InstallationCheckingBase.Infrastructure.Enums;
+using System.Collections.Generic;
 
 namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
 {
     public class Installation : BaseEntity
     {
+        public string CadastralNumber { get; set; }
+        public string CadastralType { get; set; }
+        public string PropertyNumber { get; set; }
+        public string ApartmentNumber { get; set; }
+        public int? LivingFloorsNumber { get; set; }
+        public int? YearBuilt { get; set; }
+
         public string CompanyName { get; set; }
         public string CompanyAddress { get; set; }
         public string CompanyAddress2 { get; set; }
@@ -49,6 +57,9 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
         public int? EmployeeId { get; set; }
         public int? CustomerId { get; set; }
         public int? SdkCaseId { get; set; }
+        public int? RemovalFormId { get; set; }
+
+        public virtual ICollection<Meter> Meters { get; set; }
 
         public async Task Create(InstallationCheckingPnDbContext dbContext)
         {
@@ -73,6 +84,12 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
                 throw new NullReferenceException($"Could not find item with id: {Id}");
             }
 
+            installation.CadastralNumber = CadastralNumber;
+            installation.CadastralType = CadastralType;
+            installation.PropertyNumber = PropertyNumber;
+            installation.ApartmentNumber = ApartmentNumber;
+            installation.LivingFloorsNumber = LivingFloorsNumber;
+            installation.YearBuilt = YearBuilt;
             installation.CompanyName = CompanyName;
             installation.CompanyAddress = CompanyAddress;
             installation.CompanyAddress2 = CompanyAddress2;
@@ -90,6 +107,7 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
             installation.WorkflowState = WorkflowState;
             installation.UpdatedAt = UpdatedAt;
             installation.UpdatedByUserId = UpdatedByUserId;
+            installation.Meters = Meters;
 
             if (dbContext.ChangeTracker.HasChanges())
             {
@@ -102,7 +120,7 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
         }
 
         public async Task Delete(InstallationCheckingPnDbContext dbContext)
-        {            
+        {
             Installation installation = await dbContext.Installations.FirstOrDefaultAsync(x => x.Id == Id);
 
             if (installation == null)
@@ -127,6 +145,12 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
             InstallationVersion installationVersion = new InstallationVersion
             {
                 InstallationId = installation.Id,
+                CadastralNumber = installation.CadastralNumber,
+                CadastralType = installation.CadastralType,
+                PropertyNumber = installation.PropertyNumber,
+                ApartmentNumber = installation.ApartmentNumber,
+                LivingFloorsNumber = installation.LivingFloorsNumber,
+                YearBuilt = installation.YearBuilt,
                 CompanyName = installation.CompanyName,
                 CompanyAddress = installation.CompanyAddress,
                 CompanyAddress2 = installation.CompanyAddress2,

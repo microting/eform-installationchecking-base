@@ -6,6 +6,5 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Models
         public string MaxParallelism { get; set; }
         public string SdkConnectionString { get; set; }
         public string InstallationFormId { get; set; }
-        public string RemovalFormId { get; set; }
     }
 }

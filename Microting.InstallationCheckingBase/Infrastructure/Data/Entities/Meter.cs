@@ -21,40 +21,22 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microting.eFormApi.BasePn.Infrastructure.Database.Base;
-using Microting.InstallationCheckingBase.Infrastructure.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
 {
-    public class InstallationVersion : BaseEntity
+    public class Meter
     {
-        public string CadastralNumber { get; set; }
-        public string CadastralType { get; set; }
-        public string PropertyNumber { get; set; }
-        public string ApartmentNumber { get; set; }
-        public int? LivingFloorsNumber { get; set; }
-        public int? YearBuilt { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
+        public int Id { get; set; }
+        public int Num { get; set; }
+        public string QR { get; set; }
+        public string RoomType { get; set; }
+        public int Floor { get; set; }
+        public string RoomName { get; set; }
 
-        public string CompanyName { get; set; }
-        public string CompanyAddress { get; set; }
-        public string CompanyAddress2 { get; set; }
-        public string ZipCode { get; set; }
-        public string CityName { get; set; }
-        public string CountryCode { get; set; }
-
-        public InstallationType Type { get; set; }
-        public InstallationState State { get; set; }
-
-        public DateTime? DateInstall { get; set; }
-        public DateTime? DateRemove { get; set; }
-        public DateTime? DateActRemove { get; set; }
-
-        public int? EmployeeId { get; set; }
-        public int? CustomerId { get; set; }
-        public int? SdkCaseId { get; set; }
-        public int? RemovalFormId { get; set; }
 
         [ForeignKey("Installation")]
         public int InstallationId { get; set; }
