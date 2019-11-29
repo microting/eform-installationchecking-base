@@ -168,7 +168,7 @@ namespace Microting.InstallationCheckingBase.Tests
             Assert.AreEqual(installation.Type, dbInstallation.Type);
             Assert.AreEqual(installation.State, dbInstallation.State);
 
-            Assert.AreEqual(installation.Id, installationVersions[0].Id);
+            Assert.AreEqual(installation.Id, installationVersions[0].InstallationId);
             Assert.AreEqual(1, installationVersions[0].Version);
             Assert.AreEqual(installation.WorkflowState, installationVersions[0].WorkflowState);
             Assert.AreEqual(installation.CreatedAt.ToString(), installationVersions[0].CreatedAt.ToString());
@@ -190,7 +190,7 @@ namespace Microting.InstallationCheckingBase.Tests
             Assert.AreEqual(installation.Type, installationVersions[0].Type);
             Assert.AreEqual(oldState, installationVersions[0].State);
 
-            Assert.AreEqual(installation.Id, installationVersions[1].Id);
+            Assert.AreEqual(installation.Id, installationVersions[1].InstallationId);
             Assert.AreEqual(2, installationVersions[1].Version);
             Assert.AreEqual(installation.WorkflowState, installationVersions[1].WorkflowState);
             Assert.AreEqual(installation.CreatedAt.ToString(), installationVersions[1].CreatedAt.ToString());
