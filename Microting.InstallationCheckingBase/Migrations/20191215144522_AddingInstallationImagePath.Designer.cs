@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microting.InstallationCheckingBase.Infrastructure.Data;
 
 namespace Microting.InstallationCheckingBase.Migrations
 {
     [DbContext(typeof(InstallationCheckingPnDbContext))]
-    partial class InstallationCheckingPnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191215144522_AddingInstallationImagePath")]
+    partial class AddingInstallationImagePath
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             string autoIdGenStrategy = "SqlServer:ValueGenerationStrategy";
@@ -21,7 +23,6 @@ namespace Microting.InstallationCheckingBase.Migrations
                 autoIdGenStrategy = "MySql:ValueGenerationStrategy";
                 autoIdGenStrategyValue = MySqlValueGenerationStrategy.IdentityColumn;
             }
-
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)

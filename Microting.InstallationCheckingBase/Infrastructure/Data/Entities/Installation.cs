@@ -58,6 +58,7 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
         public int? CustomerId { get; set; }
         public int? SdkCaseId { get; set; }
         public int? RemovalFormId { get; set; }
+        public string InstallationImageName { get; set; }
 
         public virtual ICollection<Meter> Meters { get; set; }
 
@@ -165,6 +166,8 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
                 EmployeeId = installation.EmployeeId,
                 CustomerId = installation.CustomerId,
                 SdkCaseId = installation.SdkCaseId,
+                RemovalFormId = installation.RemovalFormId,
+                InstallationImageName = installation.InstallationImageName,
                 CreatedAt = installation.CreatedAt,
                 UpdatedAt = installation.UpdatedAt,
                 Version = installation.Version,

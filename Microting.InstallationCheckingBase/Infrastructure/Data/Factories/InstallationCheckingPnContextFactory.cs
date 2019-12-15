@@ -32,7 +32,7 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Factories
     {
         public InstallationCheckingPnDbContext CreateDbContext(string[] args)
         {
-            //args = new[] { "Data Source=.\\SQLEXPRESS;Database=installationchecking-pn;Integrated Security=True" };
+//            args = new[] { "Data Source=.\\SQLEXPRESS;Database=installationchecking-pn;Integrated Security=True" };
             var optionsBuilder = new DbContextOptionsBuilder<InstallationCheckingPnDbContext>();
             if (args.Any())
             {
@@ -49,7 +49,7 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Factories
             {
                 throw new ArgumentNullException("Connection string not present");
             }
-            //optionsBuilder.UseSqlServer(@"data source=(LocalDb)\SharedInstance;Initial catalog=installationchecking-base-tests;Integrated Security=True");
+//            optionsBuilder.UseSqlServer(@"data source=(LocalDb)\SharedInstance;Initial catalog=installationchecking-base-tests;Integrated Security=True");
             //dotnet ef migrations add InitialCreate--project Microting.InstallationCheckingBase--startup - project DBMigrator
             optionsBuilder.UseLazyLoadingProxies(true);
             return new InstallationCheckingPnDbContext(optionsBuilder.Options);

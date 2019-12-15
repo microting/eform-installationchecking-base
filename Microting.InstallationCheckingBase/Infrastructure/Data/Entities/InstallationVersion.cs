@@ -55,6 +55,7 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
         public int? CustomerId { get; set; }
         public int? SdkCaseId { get; set; }
         public int? RemovalFormId { get; set; }
+        public string InstallationImageName { get; set; }
 
         [ForeignKey("Installation")]
         public int InstallationId { get; set; }
