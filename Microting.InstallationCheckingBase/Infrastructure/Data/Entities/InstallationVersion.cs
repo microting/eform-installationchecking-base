@@ -51,9 +51,11 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
         public DateTime? DateRemove { get; set; }
         public DateTime? DateActRemove { get; set; }
 
-        public int? EmployeeId { get; set; }
+        public int? InstallationEmployeeId { get; set; }
+        public int? RemovalEmployeeId { get; set; }
         public int? CustomerId { get; set; }
-        public int? SdkCaseId { get; set; }
+        public int? InstallationSdkCaseId { get; set; }
+        public int? RemovalSdkCaseId { get; set; }
         public int? RemovalFormId { get; set; }
         public string InstallationImageName { get; set; }
 

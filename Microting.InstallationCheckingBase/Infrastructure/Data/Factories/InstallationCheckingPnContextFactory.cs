@@ -50,7 +50,7 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Factories
                 throw new ArgumentNullException("Connection string not present");
             }
 //            optionsBuilder.UseSqlServer(@"data source=(LocalDb)\SharedInstance;Initial catalog=installationchecking-base-tests;Integrated Security=True");
-            //dotnet ef migrations add InitialCreate--project Microting.InstallationCheckingBase--startup - project DBMigrator
+            //dotnet ef migrations add InitialCreate --project Microting.InstallationCheckingBase --startup-project DBMigrator
             optionsBuilder.UseLazyLoadingProxies(true);
             return new InstallationCheckingPnDbContext(optionsBuilder.Options);
         }

@@ -54,9 +54,11 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
         public DateTime? DateRemove { get; set; }
         public DateTime? DateActRemove { get; set; }
 
-        public int? EmployeeId { get; set; }
+        public int? InstallationEmployeeId { get; set; }
+        public int? RemovalEmployeeId { get; set; }
         public int? CustomerId { get; set; }
-        public int? SdkCaseId { get; set; }
+        public int? InstallationSdkCaseId { get; set; }
+        public int? RemovalSdkCaseId { get; set; }
         public int? RemovalFormId { get; set; }
         public string InstallationImageName { get; set; }
 
@@ -102,9 +104,11 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
             installation.DateInstall = DateInstall;
             installation.DateRemove = DateRemove;
             installation.DateActRemove = DateActRemove;
-            installation.EmployeeId = EmployeeId;
+            installation.InstallationEmployeeId = InstallationEmployeeId;
+            installation.RemovalEmployeeId = RemovalEmployeeId;
             installation.CustomerId = CustomerId;
-            installation.SdkCaseId = SdkCaseId;
+            installation.InstallationSdkCaseId = InstallationSdkCaseId;
+            installation.RemovalSdkCaseId = RemovalSdkCaseId;
             installation.WorkflowState = WorkflowState;
             installation.UpdatedAt = UpdatedAt;
             installation.UpdatedByUserId = UpdatedByUserId;
@@ -163,9 +167,11 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Entities
                 DateInstall = installation.DateInstall,
                 DateRemove = installation.DateRemove,
                 DateActRemove = installation.DateActRemove,
-                EmployeeId = installation.EmployeeId,
+                InstallationEmployeeId = installation.InstallationEmployeeId,
+                RemovalEmployeeId = installation.RemovalEmployeeId,
                 CustomerId = installation.CustomerId,
-                SdkCaseId = installation.SdkCaseId,
+                InstallationSdkCaseId = installation.InstallationSdkCaseId,
+                RemovalSdkCaseId = installation.RemovalSdkCaseId,
                 RemovalFormId = installation.RemovalFormId,
                 InstallationImageName = installation.InstallationImageName,
                 CreatedAt = installation.CreatedAt,

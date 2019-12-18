@@ -55,9 +55,9 @@ namespace Microting.InstallationCheckingBase.Tests
                 DateInstall = DateTime.UtcNow,
                 DateRemove = DateTime.UtcNow,
                 DateActRemove = DateTime.UtcNow,
-                EmployeeId = rnd.Next(1, 255),
+                InstallationEmployeeId = rnd.Next(1, 255),
                 CustomerId = rnd.Next(1, 255),
-                SdkCaseId = rnd.Next(1, 255),
+                InstallationSdkCaseId = rnd.Next(1, 255),
                 UpdatedByUserId = rnd.Next(1, 255),
                 CreatedByUserId = rnd.Next(1, 255)
             };
@@ -86,9 +86,9 @@ namespace Microting.InstallationCheckingBase.Tests
             Assert.AreEqual(installation.DateInstall.ToString(), dbInstallation.DateInstall.ToString());
             Assert.AreEqual(installation.DateRemove.ToString(), dbInstallation.DateRemove.ToString());
             Assert.AreEqual(installation.DateActRemove.ToString(), dbInstallation.DateActRemove.ToString());
-            Assert.AreEqual(installation.EmployeeId, dbInstallation.EmployeeId);
+            Assert.AreEqual(installation.InstallationEmployeeId, dbInstallation.InstallationEmployeeId);
             Assert.AreEqual(installation.CustomerId, dbInstallation.CustomerId);
-            Assert.AreEqual(installation.SdkCaseId, dbInstallation.SdkCaseId);
+            Assert.AreEqual(installation.InstallationSdkCaseId, dbInstallation.InstallationSdkCaseId);
             Assert.AreEqual(installation.CompanyName, dbInstallation.CompanyName);
             Assert.AreEqual(installation.CompanyAddress, dbInstallation.CompanyAddress);
             Assert.AreEqual(installation.CompanyAddress2, dbInstallation.CompanyAddress2);
@@ -118,9 +118,9 @@ namespace Microting.InstallationCheckingBase.Tests
                 DateInstall = DateTime.UtcNow,
                 DateRemove = DateTime.UtcNow,
                 DateActRemove = DateTime.UtcNow,
-                EmployeeId = rnd.Next(1, 255),
+                InstallationEmployeeId = rnd.Next(1, 255),
                 CustomerId = rnd.Next(1, 255),
-                SdkCaseId = rnd.Next(1, 255),
+                InstallationSdkCaseId = rnd.Next(1, 255),
                 UpdatedByUserId = rnd.Next(1, 255),
                 CreatedByUserId = rnd.Next(1, 255)
             };
@@ -129,11 +129,12 @@ namespace Microting.InstallationCheckingBase.Tests
 
             // Act
             var oldState = installation.State;
-            var oldEmployeeId = installation.EmployeeId;
+            var installationRemovalEmployeeId = installation.InstallationEmployeeId;
+            var removalEmployeeId = installation.RemovalEmployeeId;
             var oldUpdatedAt = installation.UpdatedAt.GetValueOrDefault();
 
             installation.State = InstallationState.Assigned;
-            installation.EmployeeId = rnd.Next(1, 255);
+            installation.InstallationEmployeeId = rnd.Next(1, 255);
 
             await installation.Update(DbContext);
 
@@ -156,9 +157,11 @@ namespace Microting.InstallationCheckingBase.Tests
             Assert.AreEqual(installation.DateInstall.ToString(), dbInstallation.DateInstall.ToString());
             Assert.AreEqual(installation.DateRemove.ToString(), dbInstallation.DateRemove.ToString());
             Assert.AreEqual(installation.DateActRemove.ToString(), dbInstallation.DateActRemove.ToString());
-            Assert.AreEqual(installation.EmployeeId, dbInstallation.EmployeeId);
+            Assert.AreEqual(installation.InstallationEmployeeId, dbInstallation.InstallationEmployeeId);
+            Assert.AreEqual(installation.RemovalEmployeeId, dbInstallation.RemovalEmployeeId);
             Assert.AreEqual(installation.CustomerId, dbInstallation.CustomerId);
-            Assert.AreEqual(installation.SdkCaseId, dbInstallation.SdkCaseId);
+            Assert.AreEqual(installation.InstallationSdkCaseId, dbInstallation.InstallationSdkCaseId);
+            Assert.AreEqual(installation.RemovalSdkCaseId, dbInstallation.RemovalSdkCaseId);
             Assert.AreEqual(installation.CompanyName, dbInstallation.CompanyName);
             Assert.AreEqual(installation.CompanyAddress, dbInstallation.CompanyAddress);
             Assert.AreEqual(installation.CompanyAddress2, dbInstallation.CompanyAddress2);
@@ -178,9 +181,11 @@ namespace Microting.InstallationCheckingBase.Tests
             Assert.AreEqual(installation.DateInstall.ToString(), installationVersions[0].DateInstall.ToString());
             Assert.AreEqual(installation.DateRemove.ToString(), installationVersions[0].DateRemove.ToString());
             Assert.AreEqual(installation.DateActRemove.ToString(), installationVersions[0].DateActRemove.ToString());
-            Assert.AreEqual(oldEmployeeId, installationVersions[0].EmployeeId);
+            Assert.AreEqual(installationRemovalEmployeeId, installationVersions[0].InstallationEmployeeId);
+            Assert.AreEqual(removalEmployeeId, installationVersions[0].RemovalEmployeeId);
             Assert.AreEqual(installation.CustomerId, installationVersions[0].CustomerId);
-            Assert.AreEqual(installation.SdkCaseId, installationVersions[0].SdkCaseId);
+            Assert.AreEqual(installation.InstallationSdkCaseId, installationVersions[0].InstallationSdkCaseId);
+            Assert.AreEqual(installation.RemovalSdkCaseId, installationVersions[0].RemovalSdkCaseId);
             Assert.AreEqual(installation.CompanyName, installationVersions[0].CompanyName);
             Assert.AreEqual(installation.CompanyAddress, installationVersions[0].CompanyAddress);
             Assert.AreEqual(installation.CompanyAddress2, installationVersions[0].CompanyAddress2);
@@ -200,9 +205,11 @@ namespace Microting.InstallationCheckingBase.Tests
             Assert.AreEqual(installation.DateInstall.ToString(), installationVersions[1].DateInstall.ToString());
             Assert.AreEqual(installation.DateRemove.ToString(), installationVersions[1].DateRemove.ToString());
             Assert.AreEqual(installation.DateActRemove.ToString(), installationVersions[1].DateActRemove.ToString());
-            Assert.AreEqual(installation.EmployeeId, installationVersions[1].EmployeeId);
+            Assert.AreEqual(installation.InstallationEmployeeId, installationVersions[1].InstallationEmployeeId);
+            Assert.AreEqual(installation.RemovalEmployeeId, installationVersions[1].RemovalEmployeeId);
             Assert.AreEqual(installation.CustomerId, installationVersions[1].CustomerId);
-            Assert.AreEqual(installation.SdkCaseId, installationVersions[1].SdkCaseId);
+            Assert.AreEqual(installation.InstallationSdkCaseId, installationVersions[1].InstallationSdkCaseId);
+            Assert.AreEqual(installation.RemovalSdkCaseId, installationVersions[1].RemovalSdkCaseId);
             Assert.AreEqual(installation.CompanyName, installationVersions[1].CompanyName);
             Assert.AreEqual(installation.CompanyAddress, installationVersions[1].CompanyAddress);
             Assert.AreEqual(installation.CompanyAddress2, installationVersions[1].CompanyAddress2);
@@ -232,9 +239,11 @@ namespace Microting.InstallationCheckingBase.Tests
                 DateInstall = DateTime.UtcNow,
                 DateRemove = DateTime.UtcNow,
                 DateActRemove = DateTime.UtcNow,
-                EmployeeId = rnd.Next(1, 255),
+                InstallationEmployeeId = rnd.Next(1, 255),
+                RemovalEmployeeId = rnd.Next(1, 255),
                 CustomerId = rnd.Next(1, 255),
-                SdkCaseId = rnd.Next(1, 255),
+                InstallationSdkCaseId = rnd.Next(1, 255),
+                RemovalSdkCaseId = rnd.Next(1, 255),
                 UpdatedByUserId = rnd.Next(1, 255),
                 CreatedByUserId = rnd.Next(1, 255)
             };
@@ -265,9 +274,11 @@ namespace Microting.InstallationCheckingBase.Tests
             Assert.AreEqual(installation.DateInstall.ToString(), dbInstallation.DateInstall.ToString());
             Assert.AreEqual(installation.DateRemove.ToString(), dbInstallation.DateRemove.ToString());
             Assert.AreEqual(installation.DateActRemove.ToString(), dbInstallation.DateActRemove.ToString());
-            Assert.AreEqual(installation.EmployeeId, dbInstallation.EmployeeId);
+            Assert.AreEqual(installation.InstallationEmployeeId, dbInstallation.InstallationEmployeeId);
+            Assert.AreEqual(installation.RemovalEmployeeId, dbInstallation.RemovalEmployeeId);
             Assert.AreEqual(installation.CustomerId, dbInstallation.CustomerId);
-            Assert.AreEqual(installation.SdkCaseId, dbInstallation.SdkCaseId);
+            Assert.AreEqual(installation.InstallationSdkCaseId, dbInstallation.InstallationSdkCaseId);
+            Assert.AreEqual(installation.RemovalSdkCaseId, dbInstallation.RemovalSdkCaseId);
             Assert.AreEqual(installation.CompanyName, dbInstallation.CompanyName);
             Assert.AreEqual(installation.CompanyAddress, dbInstallation.CompanyAddress);
             Assert.AreEqual(installation.CompanyAddress2, dbInstallation.CompanyAddress2);
@@ -287,9 +298,11 @@ namespace Microting.InstallationCheckingBase.Tests
             Assert.AreEqual(installation.DateInstall.ToString(), installationVersions[0].DateInstall.ToString());
             Assert.AreEqual(installation.DateRemove.ToString(), installationVersions[0].DateRemove.ToString());
             Assert.AreEqual(installation.DateActRemove.ToString(), installationVersions[0].DateActRemove.ToString());
-            Assert.AreEqual(installation.EmployeeId, installationVersions[0].EmployeeId);
+            Assert.AreEqual(installation.InstallationEmployeeId, installationVersions[0].InstallationEmployeeId);
+            Assert.AreEqual(installation.RemovalEmployeeId, installationVersions[0].RemovalEmployeeId);
             Assert.AreEqual(installation.CustomerId, installationVersions[0].CustomerId);
-            Assert.AreEqual(installation.SdkCaseId, installationVersions[0].SdkCaseId);
+            Assert.AreEqual(installation.InstallationSdkCaseId, installationVersions[0].InstallationSdkCaseId);
+            Assert.AreEqual(installation.RemovalSdkCaseId, installationVersions[0].RemovalSdkCaseId);
             Assert.AreEqual(installation.CompanyName, installationVersions[0].CompanyName);
             Assert.AreEqual(installation.CompanyAddress, installationVersions[0].CompanyAddress);
             Assert.AreEqual(installation.CompanyAddress2, installationVersions[0].CompanyAddress2);
@@ -309,9 +322,11 @@ namespace Microting.InstallationCheckingBase.Tests
             Assert.AreEqual(installation.DateInstall.ToString(), installationVersions[1].DateInstall.ToString());
             Assert.AreEqual(installation.DateRemove.ToString(), installationVersions[1].DateRemove.ToString());
             Assert.AreEqual(installation.DateActRemove.ToString(), installationVersions[1].DateActRemove.ToString());
-            Assert.AreEqual(installation.EmployeeId, installationVersions[1].EmployeeId);
+            Assert.AreEqual(installation.InstallationEmployeeId, installationVersions[1].InstallationEmployeeId);
+            Assert.AreEqual(installation.RemovalEmployeeId, installationVersions[1].RemovalEmployeeId);
             Assert.AreEqual(installation.CustomerId, installationVersions[1].CustomerId);
-            Assert.AreEqual(installation.SdkCaseId, installationVersions[1].SdkCaseId);
+            Assert.AreEqual(installation.InstallationSdkCaseId, installationVersions[1].InstallationSdkCaseId);
+            Assert.AreEqual(installation.RemovalSdkCaseId, installationVersions[1].RemovalSdkCaseId);
             Assert.AreEqual(installation.CompanyName, installationVersions[1].CompanyName);
             Assert.AreEqual(installation.CompanyAddress, installationVersions[1].CompanyAddress);
             Assert.AreEqual(installation.CompanyAddress2, installationVersions[1].CompanyAddress2);
