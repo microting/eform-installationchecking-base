@@ -39,6 +39,8 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data
 
         public DbSet<Installation> Installations { get; set; }
         public DbSet<InstallationVersion> InstallationVersions { get; set;}
+        public DbSet<Meter> Meters { get; set; }
+        public DbSet<MeterVersion> MeterVersions { get; set; }
         
         public DbSet<PluginConfigurationValue> PluginConfigurationValues { get; set; }
         public DbSet<PluginConfigurationValueVersion> PluginConfigurationValueVersions { get; set; }

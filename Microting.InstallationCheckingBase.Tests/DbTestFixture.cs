@@ -94,6 +94,8 @@ namespace Microting.InstallationCheckingBase.Tests
             List<string> modelNames = new List<string>();
             modelNames.Add("Installations");
             modelNames.Add("InstallationVersions");
+            modelNames.Add("Meters");
+            modelNames.Add("MeterVersions");
 
             foreach (var modelName in modelNames)
             {
