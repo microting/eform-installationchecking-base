@@ -52,18 +52,11 @@ namespace Microting.InstallationCheckingBase.Tests
         [SetUp]
         public void Setup()
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                _connectionString = @"data source=(LocalDb)\SharedInstance;Initial catalog=instalationchecking-base-tests;Integrated Security=true";
-            }
-            else
-            {
-                _connectionString =
-                    @"Server = localhost; port = 3306; Database = instalationchecking-base-tests; user = root; Convert Zero Datetime = true;";
-            }
+
+            _connectionString =
+                @"Server = localhost; port = 3306; Database = instalationchecking-base-tests; user = root; Convert Zero Datetime = true;";
 
             GetContext(_connectionString);
-
 
             DbContext.Database.SetCommandTimeout(300);
 
@@ -91,27 +84,14 @@ namespace Microting.InstallationCheckingBase.Tests
 
         private void ClearDb()
         {
-            List<string> modelNames = new List<string>();
-            modelNames.Add("Installations");
-            modelNames.Add("InstallationVersions");
-            modelNames.Add("Meters");
-            modelNames.Add("MeterVersions");
+            List<string> modelNames = new List<string>
+                {"Installations", "InstallationVersions", "Meters", "MeterVersions"};
 
             foreach (var modelName in modelNames)
             {
                 try
                 {
-                    string sqlCmd;
-                    if (DbContext.Database.IsMySql())
-                    {
-                        sqlCmd = $"SET FOREIGN_KEY_CHECKS = 0;TRUNCATE `instalationchecking-base-tests`.`{modelName}`";
-                    }
-                    else
-                    {
-                        sqlCmd = $"DELETE FROM [{modelName}]";
-                    }
-
-                    DbContext.Database.ExecuteSqlCommand(sqlCmd);
+                    DbContext.Database.ExecuteSqlRaw($"SET FOREIGN_KEY_CHECKS = 0;TRUNCATE `instalationchecking-base-tests`.`{modelName}`");
                 }
                 catch (Exception ex)
                 {

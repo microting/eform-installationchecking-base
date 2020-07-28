@@ -25,6 +25,7 @@ using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace Microting.InstallationCheckingBase.Infrastructure.Data.Factories
 {
@@ -32,27 +33,17 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Factories
     {
         public InstallationCheckingPnDbContext CreateDbContext(string[] args)
         {
-//            args = new[] { "Data Source=.\\SQLEXPRESS;Database=installationchecking-pn;Integrated Security=True" };
+            var defaultCs =
+                "Server = localhost; port = 3306; Database = installationchecking-pn; user = root; Convert Zero Datetime = true;";
             var optionsBuilder = new DbContextOptionsBuilder<InstallationCheckingPnDbContext>();
-            if (args.Any())
-            {
-                if (args.FirstOrDefault().ToLower().Contains("convert zero datetime"))
-                {
-                    optionsBuilder.UseMySql(args.FirstOrDefault());
-                }
-                else
-                {
-                    optionsBuilder.UseSqlServer(args.FirstOrDefault());
-                }
-            }
-            else
-            {
-                throw new ArgumentNullException("Connection string not present");
-            }
-//            optionsBuilder.UseSqlServer(@"data source=(LocalDb)\SharedInstance;Initial catalog=installationchecking-base-tests;Integrated Security=True");
-            //dotnet ef migrations add InitialCreate --project Microting.InstallationCheckingBase --startup-project DBMigrator
+            optionsBuilder.UseMySql(args.Any() ? args[0] : defaultCs,
+                mysqlOptions => { mysqlOptions.ServerVersion(new Version(10, 4, 0), ServerType.MariaDb); });
             optionsBuilder.UseLazyLoadingProxies(true);
+
             return new InstallationCheckingPnDbContext(optionsBuilder.Options);
+
+            // dotnet ef migrations add InitialCreate --project Microting.InstallationCheckingBase --startup-project DBMigrator
+
         }
     }
 }
