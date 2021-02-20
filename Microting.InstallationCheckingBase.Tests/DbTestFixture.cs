@@ -86,28 +86,40 @@ namespace Microting.InstallationCheckingBase.Tests
         {
             List<string> modelNames = new List<string>
                 {"Installations", "InstallationVersions", "Meters", "MeterVersions"};
+            bool firstRunNotDone = true;
 
             foreach (var modelName in modelNames)
             {
                 try
                 {
-                    DbContext.Database.ExecuteSqlRaw($"SET FOREIGN_KEY_CHECKS = 0;TRUNCATE `instalationchecking-base-tests`.`{modelName}`");
+                    if (firstRunNotDone)
+                    {
+                        DbContext.Database.ExecuteSqlRaw(
+                            $"SET FOREIGN_KEY_CHECKS = 0;TRUNCATE `instalationchecking-base-tests`.`{modelName}`");
+                    }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+                    if (ex.Message == "Unknown database 'instalationchecking-base-tests'")
+                    {
+                        firstRunNotDone = false;
+                    }
+                    else
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
                 }
             }
         }
 
-        private string path;
+        private string _path;
 
         private void ClearFile()
         {
-            path = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
-            path = Path.GetDirectoryName(path).Replace(@"file:\", "");
+            _path = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+            _path = Path.GetDirectoryName(_path)?.Replace(@"file:\", "");
 
-            string picturePath = path + @"\output\dataFolder\picture\Deleted";
+            string picturePath = _path + @"\output\dataFolder\picture\Deleted";
 
             DirectoryInfo diPic = new DirectoryInfo(picturePath);
 
@@ -117,7 +129,11 @@ namespace Microting.InstallationCheckingBase.Tests
                 {
                     file.Delete();
                 }
-            } catch { }
+            }
+            catch
+            {
+                // ignored
+            }
         }
 
         protected virtual void DoSetup() { }

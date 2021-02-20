@@ -17,7 +17,7 @@ namespace Microting.InstallationCheckingBase.Migrations
         {
 #pragma warning disable 612, 618
             string autoIdGenStrategy = "SqlServer:ValueGenerationStrategy";
-            object autoIdGenStrategyValue = SqlServerValueGenerationStrategy.IdentityColumn;
+            object autoIdGenStrategyValue = MySqlValueGenerationStrategy.IdentityColumn;
             if (DbConfig.IsMySQL)
             {
                 autoIdGenStrategy = "MySql:ValueGenerationStrategy";
@@ -26,7 +26,7 @@ namespace Microting.InstallationCheckingBase.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microting.InstallationCheckingBase.Infrastructure.Data.Entities.Installation", b =>
                 {

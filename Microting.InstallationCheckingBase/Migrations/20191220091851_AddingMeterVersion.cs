@@ -10,7 +10,7 @@ namespace Microting.InstallationCheckingBase.Migrations
         {
             //Setup for SQL Server Provider
             var autoIdGenStrategy = "SqlServer:ValueGenerationStrategy";
-            object autoIdGenStrategyValue = SqlServerValueGenerationStrategy.IdentityColumn;
+            object autoIdGenStrategyValue = MySqlValueGenerationStrategy.IdentityColumn;
 
             // Setup for MySQL Provider
             if (migrationBuilder.ActiveProvider == "Pomelo.EntityFrameworkCore.MySql")
@@ -34,10 +34,10 @@ namespace Microting.InstallationCheckingBase.Migrations
             migrationBuilder.DropIndex(
                 name: "IX_Meter_InstallationId",
                 table: "Meters");
-            
+
             migrationBuilder.CreateIndex(
-                "IX_Meters_InstallationId", 
-                "Meters", 
+                "IX_Meters_InstallationId",
+                "Meters",
                 "InstallationId");
 
             migrationBuilder.AddColumn<DateTime>(
@@ -169,12 +169,12 @@ namespace Microting.InstallationCheckingBase.Migrations
             migrationBuilder.DropIndex(
                 name: "IX_Meters_InstallationId",
                 table: "Meters");
-            
+
             migrationBuilder.CreateIndex(
-                "IX_Meter_InstallationId", 
-                "Meter", 
+                "IX_Meter_InstallationId",
+                "Meter",
                 "InstallationId");
-            
+
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Meter",
                 table: "Meter",
