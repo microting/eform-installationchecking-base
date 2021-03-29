@@ -12,4 +12,11 @@
         <PackageReference Include="Microting.eFormApi.BasePn" Version="2.0.98" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="images\icon.png">
+            <Pack>true</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
 </Project>
