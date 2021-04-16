@@ -1,5 +1,14 @@
 # Changelog
 
+## [v2.0.107](https://github.com/microting/eform-installationchecking-base/tree/v2.0.107) (2021-04-16)
+
+[Full Changelog](https://github.com/microting/eform-installationchecking-base/compare/v2.0.106...v2.0.107)
+
+**Implemented enhancements:**
+
+- Bump Microting.eFormApi.BasePn from 2.0.126 to 2.0.127 [\#81](https://github.com/microting/eform-installationchecking-base/issues/81)
+- Bump Microting.eForm from 4.4.35 to 4.4.36 [\#80](https://github.com/microting/eform-installationchecking-base/issues/80)
+
 ## [v2.0.106](https://github.com/microting/eform-installationchecking-base/tree/v2.0.106) (2021-04-15)
 
 [Full Changelog](https://github.com/microting/eform-installationchecking-base/compare/v2.0.105...v2.0.106)
