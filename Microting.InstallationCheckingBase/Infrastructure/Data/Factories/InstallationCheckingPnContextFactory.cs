@@ -36,8 +36,11 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Factories
             var defaultCs =
                 "Server = localhost; port = 3306; Database = installationchecking-pn; user = root; Convert Zero Datetime = true;";
             var optionsBuilder = new DbContextOptionsBuilder<InstallationCheckingPnDbContext>();
-            optionsBuilder.UseMySql(args.Any() ? args[0] : defaultCs,
-                mysqlOptions => { mysqlOptions.ServerVersion(new Version(10, 4, 0), ServerType.MariaDb); });
+            optionsBuilder.UseMySql(args.Any() ? args[0] : defaultCs, new MariaDbServerVersion(
+                new Version(10, 4, 0)), mySqlOptionsAction: builder =>
+            {
+                builder.EnableRetryOnFailure();
+            });
             optionsBuilder.UseLazyLoadingProxies(true);
 
             return new InstallationCheckingPnDbContext(optionsBuilder.Options);
