@@ -1,5 +1,17 @@
 # Changelog
 
+## [v3.0.10](https://github.com/microting/eform-installationchecking-base/tree/v3.0.10) (2021-05-19)
+
+[Full Changelog](https://github.com/microting/eform-installationchecking-base/compare/v3.0.9...v3.0.10)
+
+**Implemented enhancements:**
+
+- Bump Microsoft.EntityFrameworkCore.Relational from 5.0.5 to 5.0.6 [\#130](https://github.com/microting/eform-installationchecking-base/issues/130)
+- Bump Microsoft.EntityFrameworkCore.Design from 5.0.5 to 5.0.6 [\#129](https://github.com/microting/eform-installationchecking-base/issues/129)
+- Bump Microsoft.EntityFrameworkCore from 5.0.5 to 5.0.6 [\#128](https://github.com/microting/eform-installationchecking-base/issues/128)
+- Bump Microting.eFormApi.BasePn from 3.0.10 to 3.0.12 [\#127](https://github.com/microting/eform-installationchecking-base/issues/127)
+- Bump Microting.eForm from 5.2.0 to 5.2.2 [\#126](https://github.com/microting/eform-installationchecking-base/issues/126)
+
 ## [v3.0.9](https://github.com/microting/eform-installationchecking-base/tree/v3.0.9) (2021-05-13)
 
 [Full Changelog](https://github.com/microting/eform-installationchecking-base/compare/v3.0.8...v3.0.9)
@@ -141,6 +153,7 @@
 
 - Bump Microting.eFormApi.BasePn from 2.0.127 to 2.0.128 [\#83](https://github.com/microting/eform-installationchecking-base/issues/83)
 - Bump Microting.eForm from 4.4.36 to 4.4.37 [\#82](https://github.com/microting/eform-installationchecking-base/issues/82)
+- Bump Microting.eForm from 4.4.35 to 4.4.36 [\#80](https://github.com/microting/eform-installationchecking-base/issues/80)
 
 ## [v2.0.107](https://github.com/microting/eform-installationchecking-base/tree/v2.0.107) (2021-04-16)
 
@@ -149,7 +162,6 @@
 **Implemented enhancements:**
 
 - Bump Microting.eFormApi.BasePn from 2.0.126 to 2.0.127 [\#81](https://github.com/microting/eform-installationchecking-base/issues/81)
-- Bump Microting.eForm from 4.4.35 to 4.4.36 [\#80](https://github.com/microting/eform-installationchecking-base/issues/80)
 
 ## [v2.0.106](https://github.com/microting/eform-installationchecking-base/tree/v2.0.106) (2021-04-15)
 
