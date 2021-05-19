@@ -41,7 +41,6 @@ namespace Microting.InstallationCheckingBase.Infrastructure.Data.Factories
             {
                 builder.EnableRetryOnFailure();
             });
-            optionsBuilder.UseLazyLoadingProxies(true);
 
             return new InstallationCheckingPnDbContext(optionsBuilder.Options);
 
