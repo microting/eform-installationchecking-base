@@ -1,5 +1,24 @@
 # Changelog
 
+## [v3.0.12](https://github.com/microting/eform-installationchecking-base/tree/v3.0.12) (2021-05-26)
+
+[Full Changelog](https://github.com/microting/eform-installationchecking-base/compare/v3.0.11...v3.0.12)
+
+**Implemented enhancements:**
+
+- Bump Microting.eFormApi.BasePn from 3.0.12 to 3.0.13 [\#134](https://github.com/microting/eform-installationchecking-base/issues/134)
+- Bump Microting.eForm from 5.2.2 to 5.2.3 [\#133](https://github.com/microting/eform-installationchecking-base/issues/133)
+
+## [v3.0.11](https://github.com/microting/eform-installationchecking-base/tree/v3.0.11) (2021-05-19)
+
+[Full Changelog](https://github.com/microting/eform-installationchecking-base/compare/v3.0.10...v3.0.11)
+
+**Merged pull requests:**
+
+- Upgrade to GitHub-native Dependabot [\#95](https://github.com/microting/eform-installationchecking-base/pull/95) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump NUnit from 3.12.0 to 3.13.2 [\#94](https://github.com/microting/eform-installationchecking-base/pull/94) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump Microsoft.NET.Test.Sdk from 16.6.1 to 16.9.4 [\#51](https://github.com/microting/eform-installationchecking-base/pull/51) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## [v3.0.10](https://github.com/microting/eform-installationchecking-base/tree/v3.0.10) (2021-05-19)
 
 [Full Changelog](https://github.com/microting/eform-installationchecking-base/compare/v3.0.9...v3.0.10)
@@ -153,7 +172,6 @@
 
 - Bump Microting.eFormApi.BasePn from 2.0.127 to 2.0.128 [\#83](https://github.com/microting/eform-installationchecking-base/issues/83)
 - Bump Microting.eForm from 4.4.36 to 4.4.37 [\#82](https://github.com/microting/eform-installationchecking-base/issues/82)
-- Bump Microting.eForm from 4.4.35 to 4.4.36 [\#80](https://github.com/microting/eform-installationchecking-base/issues/80)
 
 ## [v2.0.107](https://github.com/microting/eform-installationchecking-base/tree/v2.0.107) (2021-04-16)
 
@@ -162,6 +180,7 @@
 **Implemented enhancements:**
 
 - Bump Microting.eFormApi.BasePn from 2.0.126 to 2.0.127 [\#81](https://github.com/microting/eform-installationchecking-base/issues/81)
+- Bump Microting.eForm from 4.4.35 to 4.4.36 [\#80](https://github.com/microting/eform-installationchecking-base/issues/80)
 
 ## [v2.0.106](https://github.com/microting/eform-installationchecking-base/tree/v2.0.106) (2021-04-15)
 
@@ -234,6 +253,7 @@
 
 - Bump Microting.eFormApi.BasePn from 2.0.111 to 2.0.113 [\#64](https://github.com/microting/eform-installationchecking-base/issues/64)
 - Bump Microting.eForm from 4.4.20 to 4.4.21 [\#63](https://github.com/microting/eform-installationchecking-base/issues/63)
+- Bump Microting.eFormApi.BasePn from 2.0.109 to 2.0.110 [\#55](https://github.com/microting/eform-installationchecking-base/issues/55)
 
 ## [v2.0.98](https://github.com/microting/eform-installationchecking-base/tree/v2.0.98) (2021-04-06)
 
@@ -258,7 +278,6 @@
 
 **Implemented enhancements:**
 
-- Bump Microting.eFormApi.BasePn from 2.0.109 to 2.0.110 [\#55](https://github.com/microting/eform-installationchecking-base/issues/55)
 - Bump Microting.eForm from 4.4.16 to 4.4.17 [\#54](https://github.com/microting/eform-installationchecking-base/issues/54)
 
 ## [v2.0.95](https://github.com/microting/eform-installationchecking-base/tree/v2.0.95) (2021-04-02)
