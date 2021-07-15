@@ -1,5 +1,17 @@
 # Changelog
 
+## [v3.0.23](https://github.com/microting/eform-installationchecking-base/tree/v3.0.23) (2021-07-15)
+
+[Full Changelog](https://github.com/microting/eform-installationchecking-base/compare/v3.0.22...v3.0.23)
+
+**Implemented enhancements:**
+
+- Bump Microsoft.EntityFrameworkCore.Relational from 5.0.7 to 5.0.8 [\#174](https://github.com/microting/eform-installationchecking-base/issues/174)
+- Bump Microsoft.EntityFrameworkCore.Design from 5.0.7 to 5.0.8 [\#173](https://github.com/microting/eform-installationchecking-base/issues/173)
+- Bump Microsoft.EntityFrameworkCore from 5.0.7 to 5.0.8 [\#172](https://github.com/microting/eform-installationchecking-base/issues/172)
+- Bump Microting.eFormApi.BasePn from 3.0.28 to 3.0.30 [\#171](https://github.com/microting/eform-installationchecking-base/issues/171)
+- Bump Microting.eForm from 5.2.15 to 5.2.17 [\#170](https://github.com/microting/eform-installationchecking-base/issues/170)
+
 ## [v3.0.22](https://github.com/microting/eform-installationchecking-base/tree/v3.0.22) (2021-07-08)
 
 [Full Changelog](https://github.com/microting/eform-installationchecking-base/compare/v3.0.21...v3.0.22)
@@ -214,6 +226,7 @@
 
 **Implemented enhancements:**
 
+- Bump Microting.eFormApi.BasePn from 2.1.3 to 3.0.0 [\#99](https://github.com/microting/eform-installationchecking-base/issues/99)
 - Bump Microting.eForm from 4.5.3 to 5.0.2 [\#98](https://github.com/microting/eform-installationchecking-base/issues/98)
 
 ## [v2.1.2](https://github.com/microting/eform-installationchecking-base/tree/v2.1.2) (2021-04-27)
@@ -244,7 +257,6 @@
 
 **Implemented enhancements:**
 
-- Bump Microting.eFormApi.BasePn from 2.1.3 to 3.0.0 [\#99](https://github.com/microting/eform-installationchecking-base/issues/99)
 - Bump Microting.eFormApi.BasePn from 2.0.129 to 2.1.0 [\#87](https://github.com/microting/eform-installationchecking-base/issues/87)
 - Bump Microting.eForm from 4.4.38 to 4.5.0 [\#86](https://github.com/microting/eform-installationchecking-base/issues/86)
 
